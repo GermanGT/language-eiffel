@@ -1,0 +1,215 @@
+".source.eiffel":
+  assignment:
+    prefix: "in"
+    body: "${1:writable} := ${2:expression}"
+  "assignment attempt":
+    prefix: "in"
+    body: "${1:writable} ?= ${2:expression}"
+  check:
+    prefix: "in"
+    body: '''
+      check
+      	${1:assertion}
+      end
+    '''
+  class:
+    prefix: "cl"
+    body: '''
+      -- ${1:class_name}
+      
+      class
+      	${1/(.*)/\\U$0\\E/}
+      inherit
+      
+      create
+      
+      feature
+      
+      invariant
+      
+      end -- ${1/(.*)/\\U$0\\E/}
+      
+    '''
+  constant:
+    prefix: "fd"
+    body: "${1:constant}: ${2:TYPE} is ${3:value}"
+  create:
+    prefix: "in"
+    body: '''
+      create${1: {${2:TYPE}\\}} ${3:writable}.${4:make}
+      
+    '''
+  debug:
+    prefix: "in"
+    body: '''
+      debug${1: (${2:debug_key})$}
+      	${3:instruction}
+      end
+    '''
+  "deferred class":
+    prefix: "cl"
+    body: '''
+      -- ${1:class_name}
+      
+      deferred class
+      	${1/(.*)/\\U$0\\E/}
+      inherit
+      
+      feature
+      
+      invariant
+      
+      end -- ${1/(.*)/\\U$0\\E/}
+      
+    '''
+  "deferred routine":
+    prefix: "fd"
+    body: '''
+      ${1:routine}${2: (${3:args}: ${4:TYPE})}${5:: ${6:TYPE}} is${7:
+      	require
+      		${8:assertion}}
+      	deferred${9:
+      	ensure
+      		${10:assertion}}
+      	end -- $1
+    '''
+  elseif:
+    prefix: "in"
+    body: '''
+      elseif ${1:boolean_expression} then
+      	${2:instruction}
+      
+    '''
+  "expanded class":
+    prefix: "cl"
+    body: '''
+      -- ${1:class_name}
+      
+      expanded class
+      	${1/(.*)/\\U$0\\E/}
+      inherit
+      
+      create
+      
+      feature
+      
+      invariant
+      
+      end -- ${1/(.*)/\\U$0\\E/}
+      
+    '''
+  "external routine":
+    prefix: "fd"
+    body: '''
+      ${1:routine}${2: (${3:args}: ${4:TYPE})}${5:: ${6:TYPE}} is${7:
+      	require
+      		${8:assertion}}
+      	external
+      		"${9:language}"${10:
+      	alias
+      		"${11:external_name}"}${12:
+      	ensure
+      		${13:assertion}}
+      	end -- $1
+    '''
+  routine:
+    prefix: "fd"
+    body: '''
+      ${1:routine}${2: (${3:args}: ${4:TYPE})}${5:: ${6:TYPE}} is${7:
+      	require
+      		${8:assertion}}${9:
+      	local
+      		${10:l}:${11:TYPE}} 
+      	do
+      		${12:instruction}{13:
+      	ensure
+      		${14:assertion}}${15:
+      	rescue
+      		${16:instruction}}
+      	end -- $1
+    '''
+  if:
+    prefix: "in"
+    body: '''
+      if ${1:boolean_expression} then
+      	${2:instruction}${3:
+      elseif
+      	${4:instruction}}${5:
+      else
+      	${6:instruction}}
+      end
+    '''
+  indexing:
+    prefix: "ix"
+    body: '''
+      Indexing
+      	Project: "$TM_FILEPATH"
+      	File: "$TM_FILENAME"
+      	Description: "${1:description}"
+      	Author: "${2:$USER}"
+      	Copyright: "© 2006 $1"
+      	Version: 1.0
+      	Date: "`date`"
+      	Keywords: ${4:keywords}
+      
+    '''
+  inspect:
+    prefix: "in"
+    body: '''
+      inspect
+      	${1:expression}
+      when ${2:choice} then
+      	${3:instruction}${4:
+      else
+      	${5:instruction}}
+      end
+    '''
+  loop:
+    prefix: "in"
+    body: '''
+      across
+        ${1:instruction}
+      from
+      	${2:instruction}${3:
+      invariant
+      	${4:assertion}}${5:
+      variant
+      	${6:expression}}
+      until
+      	${7:boolean_expression}
+      loop
+      	${8:instruction}
+      end
+      
+    '''
+  "once routine":
+    prefix: "fd"
+    body: '''
+      ${1:routine}${2: (${3:args}: ${4:TYPE})}${5:: ${6:TYPE}} is${7:
+      	require
+      		${8:assertion}}${9:
+      	local
+      		${10:l}:${11:TYPE}} 
+      	once
+      		${12:instruction}${13:
+      	ensure
+      		${14:assertion}}${15:
+      	rescue
+      		${16:instruction}}
+      	end -- $1
+    '''
+  retry:
+    prefix: "in"
+    body: "retry"
+  unique:
+    prefix: "fd"
+    body: "${1:constant}: ${2:TYPE} is unique"
+  variable:
+    prefix: "fd"
+    body: "${1:constant}: ${2:TYPE}"
+  when:
+    prefix: "in"
+    body: '''
+      when ${1:choice} then
+      	${2:instruction}
+    '''
