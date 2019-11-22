@@ -1,0 +1,6 @@
+".source.eiffel":
+  editor:
+    increaseIndentPattern: "^\\s*(index|class|inherit|do|if\\s.*\\sthen|else|elseif\\s.*\\sthen|inspect|when\\s.*\\sthen|require|ensure|invariant|rescue|check|debug|rename|export|undefine|redefine|select|local|across|from|variant|until|loop|feature)\\s*$"
+    decreaseIndentPattern: "^\\s*(index|class|inherit|end|else|elseif|when|require|ensure|invariant|rescue|export|undefine|redefine|select|variant|until|loop)"
+    foldEndPattern: "(ensure|end)"
+    commentStart: "-- "
