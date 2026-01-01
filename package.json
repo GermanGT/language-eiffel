@@ -1,6 +1,6 @@
 {
   "name": "language-eiffel-modern",
-  "version": "0.2.0",
+  "version": "0.1.0",
   "description": "Syntax highlighter for Eiffel language",
   "keywords": [],
   "repository": "https://github.com/GermanGT/language-eiffel",
